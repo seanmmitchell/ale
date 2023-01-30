@@ -28,7 +28,7 @@ func TestMain(t *testing.T) {
 	t.Log("Adding DEBUG pipeline to subengine...")
 	mySubLogEngine.AddLogPipeline(ale.Debug, pconsole.Log)
 
-	t.Log("Sending log to subengine...")
+	t.Log("Sending logs to subengine...")
 	mySubLogEngine.Log(ale.Critical, "Critical Log")
 	mySubLogEngine.Log(ale.Error, "Error Log")
 	mySubLogEngine.Log(ale.Warning, "Warning Log")
