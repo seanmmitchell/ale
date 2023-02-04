@@ -34,7 +34,7 @@ A simple yet very powerful logging package great for quick projects and scaling 
 
 
 ## License
-This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International.  
+This work is licensed under the MIT License.  
 Please review [LICENSE](LICENSE.md) (LICENSE.md) for specifics.
 
 ## Features in Mind
