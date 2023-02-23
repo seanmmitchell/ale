@@ -7,32 +7,34 @@ A simple yet very powerful logging package great for quick projects and scaling 
     go get -u github.com/seanmmitchll/ale
 
 ## How to Use
-    import (
-        "github.com/seanmmitchell/ale"
-        "github.com/seanmmitchell/ale/pconsole"
-    )
+```go
+import (
+    "github.com/seanmmitchell/ale"
+    "github.com/seanmmitchell/ale/pconsole"
+)
 
-    func main() {
-        le := ale.CreateLogEngine("Example")
-        le.AddLogPipeline(ale.Info, pconsole.Log)
+func main() {
+    le := ale.CreateLogEngine("Example")
+    le.AddLogPipeline(ale.Info, pconsole.Log)
 
-        le.Log(ale.Critical, "Critical Log")
-        le.Log(ale.Error, "Error Log")
-        le.Log(ale.Warning, "Warning Log")
-        le.Log(ale.Info, "Info Log")
-        le.Log(ale.Verbose, "Verbose Log")
-        le.Log(ale.Debug, "Debug Log")
+    le.Log(ale.Critical, "Critical Log")
+    le.Log(ale.Error, "Error Log")
+    le.Log(ale.Warning, "Warning Log")
+    le.Log(ale.Info, "Info Log")
+    le.Log(ale.Verbose, "Verbose Log")
+    le.Log(ale.Debug, "Debug Log")
 
-        sle := le.CreateSubEngine("Sub-Engine")
-        sle.AddLogPipeline(ale.Warning, pconsole.Log)
+    sle := le.CreateSubEngine("Sub-Engine")
+    sle.AddLogPipeline(ale.Warning, pconsole.Log)
 
-        sle.Log(ale.Critical, "Critical Log")
-        sle.Log(ale.Error, "Error Log")
-        sle.Log(ale.Warning, "Warning Log")
-        sle.Log(ale.Info, "Info Log")
-        sle.Log(ale.Verbose, "Verbose Log")
-        sle.Log(ale.Debug, "Debug Log")
-    }
+    sle.Log(ale.Critical, "Critical Log")
+    sle.Log(ale.Error, "Error Log")
+    sle.Log(ale.Warning, "Warning Log")
+    sle.Log(ale.Info, "Info Log")
+    sle.Log(ale.Verbose, "Verbose Log")
+    sle.Log(ale.Debug, "Debug Log")
+}
+```
 
 ![image](https://user-images.githubusercontent.com/20157708/220814234-054730cb-fc55-468f-bd00-795e050afa93.png)
 
