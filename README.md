@@ -34,7 +34,7 @@ A simple yet very powerful logging package great for quick projects and scaling 
         sle.Log(ale.Debug, "Debug Log")
     }
 
-![image](https://user-images.githubusercontent.com/20157708/220814094-2e3c66ed-4284-48df-8626-adddcf59e032.png)
+![image](https://user-images.githubusercontent.com/20157708/220814234-054730cb-fc55-468f-bd00-795e050afa93.png)
 
 ## License
 This work is licensed under the MIT License.  
