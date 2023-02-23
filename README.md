@@ -1,6 +1,8 @@
 # Advanced Logging Engine (ALE)
 A simple yet very powerful logging package great for quick projects and scaling your log collection design.
 
+![image](https://user-images.githubusercontent.com/20157708/220814053-ec10383a-eb9f-433c-95b5-fc49d2c2af90.png)
+
 ## How to Install
     go get -u github.com/seanmmitchll/ale
 
@@ -32,6 +34,7 @@ A simple yet very powerful logging package great for quick projects and scaling 
         sle.Log(ale.Debug, "Debug Log")
     }
 
+![image](https://user-images.githubusercontent.com/20157708/220814094-2e3c66ed-4284-48df-8626-adddcf59e032.png)
 
 ## License
 This work is licensed under the MIT License.  
