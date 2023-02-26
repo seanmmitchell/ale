@@ -1,10 +1,16 @@
 # Advanced Logging Engine (ALE)
+![ale-final-min](https://user-images.githubusercontent.com/20157708/221439553-6aceca40-0063-4493-92d3-944f22a3302d.png)
+
 A simple yet very powerful logging package great for quick projects and scaling your log collection design.
 
 ![image](https://user-images.githubusercontent.com/20157708/220814053-ec10383a-eb9f-433c-95b5-fc49d2c2af90.png)
 
 ## How to Install
     go get -u github.com/seanmmitchll/ale
+    
+## Feature Ideas
+- Inheritable log pipelines.
+- A way to attach to other common packages (syslog, etc)
 
 ## How to Use
 ```go
@@ -41,7 +47,3 @@ func main() {
 ## License
 This work is licensed under the MIT License.  
 Please review [LICENSE](LICENSE.md) (LICENSE.md) for specifics.
-
-## Features in Mind
-- Inheritable log pipelines.
-- A way to attach to other common packages (syslog, etc)
