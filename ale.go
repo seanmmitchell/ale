@@ -2,7 +2,6 @@ package ale // import "github.com/seanmmitchell/ale"
 
 import (
 	"fmt"
-	"strings"
 	"time"
 
 	"github.com/seanmmitchell/ale/tfuncs"
@@ -60,37 +59,6 @@ func (le *LogEngine) Log(sev int, message string) {
 	}
 }
 
-// Log
-
-func (log *Log) ToString() string {
-	return fmt.Sprintf("%s | %s | %s | %s", tfuncs.TimeToString(log.Time), log.Source, TranslateSeverity(log.Severity), log.Message)
-}
-
-func CenteredText(str string, size int) (string, error) {
-	if len(str) > size {
-		return "", fmt.Errorf("string too long for size")
-	}
-
-	spaces := int(float64(size-len(str)) / 2)
-	return strings.Repeat(" ", spaces) + str + strings.Repeat(" ", size-(spaces+len(str))), nil
-}
-
-func LeftAlignedText(str string, size int) (string, error) {
-	if len(str) > size {
-		return "", fmt.Errorf("string too long for size")
-	}
-
-	return str + strings.Repeat(" ", size-len(str)), nil
-}
-
-func RightAlignedText(str string, size int) (string, error) {
-	if len(str) > size {
-		return "", fmt.Errorf("string too long for size")
-	}
-
-	return strings.Repeat(" ", size-len(str)) + str, nil
-}
-
 // Util
 
 var severityTranslationMap = map[int]string{
@@ -122,4 +90,8 @@ func getEnginePath(le *LogEngine) string {
 			pEngine = pEngine.parentEngine
 		}
 	}
+}
+
+func (log *Log) String() string {
+	return fmt.Sprintf("%s | %s | %s | %s", tfuncs.TimeToString(log.Time), log.Source, TranslateSeverity(log.Severity), log.Message)
 }

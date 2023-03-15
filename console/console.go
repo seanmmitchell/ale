@@ -11,7 +11,7 @@ var ConsoleWriteLock sync.Mutex
 
 func Log(log *ale.Log) error {
 	ConsoleWriteLock.Lock()
-	fmt.Println(log.ToString())
+	fmt.Println(log)
 	ConsoleWriteLock.Unlock()
 	return nil
 }
