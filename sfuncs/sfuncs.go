@@ -6,7 +6,6 @@ import (
 )
 
 // Log
-
 func CenteredText(str string, size int) (string, error) {
 	if len(str) > size {
 		return "", fmt.Errorf("string too long for size")

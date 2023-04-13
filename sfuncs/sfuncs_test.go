@@ -16,26 +16,26 @@ func TestCenteredText(t *testing.T) {
 		t.Log("No Error On Normal Case.")
 	}
 
+	// Test Limit (Tecnically a Normal Case)
+	t.Log("Running Limit Test...")
+	res, err = CenteredText("test", 4)
+	t.Logf("Result: \"%s\"\n", res)
+	if err != nil {
+		t.Error("Unexpected Error Occured on Limit Case.")
+		t.Fail()
+	} else {
+		t.Log("No Error On Limit Case.")
+	}
+
 	// Test Overflow
 	t.Log("Running Overflow Test...")
-	res, err = CenteredText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 10)
+	res, err = CenteredText("test1234", 4)
 	t.Logf("Result: \"%s\"\n", res)
 	if err != nil {
 		t.Log("Expected Error Occured on Overflow Case.")
 	} else {
 		t.Error("Unexpected Success Occured on Overflow Case.")
 		t.Fail()
-	}
-
-	// Test Underflow (Tecnically a Normal Case)
-	t.Log("Running Underflow Test...")
-	res, err = CenteredText("test", 6)
-	t.Logf("Result: \"%s\"\n", res)
-	if err != nil {
-		t.Error("Unexpected Error Occured on Underflow Case.")
-		t.Fail()
-	} else {
-		t.Log("No Error On Underflow Case.")
 	}
 }
 
@@ -51,26 +51,26 @@ func TestLeftAlignedText(t *testing.T) {
 		t.Log("No Error On Normal Case.")
 	}
 
+	// Test Limit (Tecnically a Normal Case)
+	t.Log("Running Limit Test...")
+	res, err = LeftAlignedText("test", 4)
+	t.Logf("Result: \"%s\"\n", res)
+	if err != nil {
+		t.Error("Unexpected Error Occured on Limit Case.")
+		t.Fail()
+	} else {
+		t.Log("No Error On Limit Case.")
+	}
+
 	// Test Overflow
 	t.Log("Running Overflow Test...")
-	res, err = LeftAlignedText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 10)
+	res, err = LeftAlignedText("test1234", 4)
 	t.Logf("Result: \"%s\"\n", res)
 	if err != nil {
 		t.Log("Expected Error Occured on Overflow Case.")
 	} else {
 		t.Error("Unexpected Success Occured on Overflow Case.")
 		t.Fail()
-	}
-
-	// Test Underflow (Tecnically a Normal Case)
-	t.Log("Running Underflow Test...")
-	res, err = LeftAlignedText("test", 6)
-	t.Logf("Result: \"%s\"\n", res)
-	if err != nil {
-		t.Error("Unexpected Error Occured on Underflow Case.")
-		t.Fail()
-	} else {
-		t.Log("No Error On Underflow Case.")
 	}
 }
 
@@ -86,26 +86,26 @@ func TestRightAlignedText(t *testing.T) {
 		t.Log("No Error On Normal Case.")
 	}
 
+	// Test Limit (Tecnically a Normal Case)
+	t.Log("Running Limit Test...")
+	res, err = RightAlignedText("test", 4)
+	t.Logf("Result: \"%s\"\n", res)
+	if err != nil {
+		t.Error("Unexpected Error Occured on Limit Case.")
+		t.Fail()
+	} else {
+		t.Log("No Error On Limit Case.")
+	}
+
 	// Test Overflow
 	t.Log("Running Overflow Test...")
-	res, err = RightAlignedText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 10)
+	res, err = RightAlignedText("test1234", 4)
 	t.Logf("Result: \"%s\"\n", res)
 	if err != nil {
 		t.Log("Expected Error Occured on Overflow Case.")
 	} else {
 		t.Error("Unexpected Success Occured on Overflow Case.")
 		t.Fail()
-	}
-
-	// Test Underflow (Tecnically a Normal Case)
-	t.Log("Running Underflow Test...")
-	res, err = RightAlignedText("test", 6)
-	t.Logf("Result: \"%s\"\n", res)
-	if err != nil {
-		t.Error("Unexpected Error Occured on Underflow Case.")
-		t.Fail()
-	} else {
-		t.Log("No Error On Underflow Case.")
 	}
 }
 
@@ -115,14 +115,14 @@ func TestBCenteredText(t *testing.T) {
 	res := BCenteredText("normal", 10)
 	t.Logf("Result: \"%s\"\n", res)
 
-	// Test Overflow
-	t.Log("Running Overflow Test...")
-	res = BCenteredText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 10)
+	// Test Limit
+	t.Log("Running Limit Test...")
+	res = BCenteredText("test", 4)
 	t.Logf("Result: \"%s\"\n", res)
 
-	// Test Underflow (Tecnically a Normal Case)
-	t.Log("Running Underflow Test...")
-	res = BCenteredText("test", 6)
+	// Test Overflow
+	t.Log("Running Overflow Test...")
+	res = BCenteredText("test1234", 4)
 	t.Logf("Result: \"%s\"\n", res)
 }
 
@@ -132,14 +132,14 @@ func TestBLeftAlignedText(t *testing.T) {
 	res := BLeftAlignedText("normal", 10)
 	t.Logf("Result: \"%s\"\n", res)
 
-	// Test Overflow
-	t.Log("Running Overflow Test...")
-	res = BLeftAlignedText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 10)
+	// Test Limit
+	t.Log("Running Limit Test...")
+	res = BLeftAlignedText("test", 4)
 	t.Logf("Result: \"%s\"\n", res)
 
-	// Test Underflow (Tecnically a Normal Case)
-	t.Log("Running Underflow Test...")
-	res = BLeftAlignedText("test", 6)
+	// Test Overflow
+	t.Log("Running Overflow Test...")
+	res = BLeftAlignedText("test1234", 4)
 	t.Logf("Result: \"%s\"\n", res)
 }
 
@@ -149,13 +149,13 @@ func TestBRightAlignedText(t *testing.T) {
 	res := BRightAlignedText("normal", 10)
 	t.Logf("Result: \"%s\"\n", res)
 
-	// Test Overflow
-	t.Log("Running Overflow Test...")
-	res = BRightAlignedText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 10)
+	// Test Limit
+	t.Log("Running Limit Test...")
+	res = BRightAlignedText("test", 4)
 	t.Logf("Result: \"%s\"\n", res)
 
-	// Test Underflow (Tecnically a Normal Case)
-	t.Log("Running Underflow Test...")
-	res = BRightAlignedText("test", 6)
+	// Test Overflow
+	t.Log("Running Overflow Test...")
+	res = BRightAlignedText("testtest", 4)
 	t.Logf("Result: \"%s\"\n", res)
 }

@@ -36,7 +36,6 @@ type LogPipeline struct {
 }
 
 // Engine
-
 func CreateLogEngine(name string) *LogEngine {
 	return &LogEngine{Name: name}
 }
@@ -60,7 +59,6 @@ func (le *LogEngine) Log(sev int, message string) {
 }
 
 // Util
-
 var severityTranslationMap = map[int]string{
 	0: "Critical",
 	1: "Error",
