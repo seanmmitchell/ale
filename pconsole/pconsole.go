@@ -2,6 +2,8 @@ package pconsole
 
 import (
 	"fmt"
+
+	"github.com/seanmmitchell/ale/sfuncs"
 	"github.com/seanmmitchell/ale/tfuncs"
 
 	"github.com/seanmmitchell/ale"
@@ -10,14 +12,8 @@ import (
 )
 
 func Log(log *ale.Log) error {
-	source, err1 := ale.LeftAlignedText(log.Source, 20)
-	if err1 != nil {
-		return fmt.Errorf("failed to format source field")
-	}
-	severity, err2 := ale.CenteredText(ale.TranslateSeverity(log.Severity), 20)
-	if err2 != nil {
-		return fmt.Errorf("failed to format severity field")
-	}
+	source := sfuncs.BLeftAlignedText(log.Source, 20)
+	severity := sfuncs.BCenteredText(ale.TranslateSeverity(log.Severity), 20)
 
 	var foregroundColor ctc.Color
 	var backgroundColor ctc.Color
