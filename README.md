@@ -7,10 +7,6 @@ A simple yet very powerful logging package great for quick projects and scaling 
 
 ## How to Install
     go get -u github.com/seanmmitchell/ale
-    
-## Feature Ideas
-- Inheritable log pipelines.
-- A way to attach to other common packages (syslog, etc)
 
 ## How to Use
 ```go
