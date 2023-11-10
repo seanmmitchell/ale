@@ -4,10 +4,12 @@ import (
 	"testing"
 
 	"github.com/seanmmitchell/ale"
+	"github.com/seanmmitchell/ale/alesyslog"
 	"github.com/seanmmitchell/ale/pconsole"
 )
 
 func TestMain(t *testing.T) {
+	t.Log("====== Starting Core Test")
 	t.Log("Creating log engine...")
 	myLogEngine := ale.CreateLogEngine("ALE")
 
@@ -35,4 +37,18 @@ func TestMain(t *testing.T) {
 	mySubLogEngine.Log(ale.Info, "Info Log")
 	mySubLogEngine.Log(ale.Verbose, "Verbose Log")
 	mySubLogEngine.Log(ale.Debug, "Debug Log")
+
+	t.Log("====== Starting Module Tests ")
+	t.Log("Creating log engine...")
+	sysLogEngine := ale.CreateLogEngine("ALE > Syslog")
+
+	t.Log("Creating Syslog Output...")
+	as, _ := alesyslog.New("udp", "10.16.6.4:12002")
+
+	t.Log("Adding Syslog Pipeline...")
+	sysLogEngine.AddLogPipeline(ale.Debug, as.Log)
+
+	t.Log("Sending Syslog...")
+	sysLogEngine.Log(ale.Debug, "Test for Syslog Module of ALE (https://github.com/seanmmitchell/ale)")
+
 }
