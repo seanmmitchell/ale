@@ -17,7 +17,8 @@ import (
 
 func main() {
     le := ale.CreateLogEngine("Example")
-    le.AddLogPipeline(ale.Info, pconsole.Log)
+    pCTX, _ := pconsole.New(20, 20)
+    le.AddLogPipeline(ale.Info, pCTX.Log)
 
     le.Log(ale.Critical, "Critical Log")
     le.Log(ale.Error, "Error Log")
@@ -27,7 +28,7 @@ func main() {
     le.Log(ale.Debug, "Debug Log")
 
     sle := le.CreateSubEngine("Sub-Engine")
-    sle.AddLogPipeline(ale.Warning, pconsole.Log)
+    sle.AddLogPipeline(ale.Warning, pCTX.Log)
 
     sle.Log(ale.Critical, "Critical Log")
     sle.Log(ale.Error, "Error Log")
