@@ -59,7 +59,7 @@ func (le *LogEngine) Log(sev int, message string) {
 
 			if outputError != nil {
 				// Log Output Failed!
-				fmt.Printf("ALE | Log Output Failed. Error: " + outputError.Error())
+				fmt.Println("ALE | Log Output Failed. Error: " + outputError.Error())
 				//return outputError - We dont want to prevent other pipelines from being logged to. Best to just send to console and move on.
 			}
 		}
