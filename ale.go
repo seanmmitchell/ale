@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/seanmmitchell/ale/tfuncs"
+	"github.com/seanmmitchell/ale/v2/tfuncs"
 )
 
 const (

@@ -2,18 +2,37 @@ package pconsole
 
 import (
 	"fmt"
+	"sync"
 
-	"github.com/seanmmitchell/ale/sfuncs"
-	"github.com/seanmmitchell/ale/tfuncs"
+	"github.com/seanmmitchell/ale/v2/sfuncs"
+	"github.com/seanmmitchell/ale/v2/tfuncs"
 
-	"github.com/seanmmitchell/ale"
+	"github.com/seanmmitchell/ale/v2"
 
 	"github.com/wzshiming/ctc"
 )
 
-func Log(log *ale.Log) error {
-	source := sfuncs.BLeftAlignedText(log.Source, 20)
-	severity := sfuncs.BCenteredText(ale.TranslateSeverity(log.Severity), 20)
+type PConsoleCTX struct {
+	logLock        sync.Mutex
+	sourceWidth    int
+	serverityWidth int
+}
+
+func New(sourceWidth int, serverityWidth int) (*PConsoleCTX, error) {
+	if sourceWidth < 0 || serverityWidth < 0 {
+		return nil, fmt.Errorf("console widths can not be negative")
+	}
+
+	return &PConsoleCTX{
+		logLock:        sync.Mutex{},
+		sourceWidth:    sourceWidth,
+		serverityWidth: serverityWidth,
+	}, nil
+}
+
+func (ctx *PConsoleCTX) Log(log *ale.Log) error {
+	source := sfuncs.BLeftAlignedText(log.Source, ctx.sourceWidth)
+	severity := sfuncs.BCenteredText(ale.TranslateSeverity(log.Severity), ctx.serverityWidth)
 
 	var foregroundColor ctc.Color
 	var backgroundColor ctc.Color
@@ -48,6 +67,8 @@ func Log(log *ale.Log) error {
 		}
 	}
 
+	ctx.logLock.Lock()
 	fmt.Printf("%s | %s %s | %s\r\n", tfuncs.TimeToString(log.Time), (fmt.Sprint(foregroundColor|backgroundColor) + severity + fmt.Sprint(ctc.Reset)), source, log.Message)
+	ctx.logLock.Unlock()
 	return nil
 }

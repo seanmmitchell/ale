@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/seanmmitchell/ale"
+	"github.com/seanmmitchell/ale/v2"
 )
 
 var ConsoleWriteLock sync.Mutex
