@@ -6,18 +6,19 @@ A simple yet very powerful logging package great for quick projects and scaling 
 ![image](https://user-images.githubusercontent.com/20157708/220814053-ec10383a-eb9f-433c-95b5-fc49d2c2af90.png)
 
 ## How to Install
-    go get -u github.com/seanmmitchell/ale
+    go get -u github.com/seanmmitchell/ale/v2
 
 ## How to Use
 ```go
 import (
-    "github.com/seanmmitchell/ale"
-    "github.com/seanmmitchell/ale/pconsole"
+    "github.com/seanmmitchell/ale/v2"
+    "github.com/seanmmitchell/ale/v2/pconsole"
 )
 
 func main() {
     le := ale.CreateLogEngine("Example")
-    le.AddLogPipeline(ale.Info, pconsole.Log)
+    pCTX, _ := pconsole.New(20, 20)
+    le.AddLogPipeline(ale.Info, pCTX.Log)
 
     le.Log(ale.Critical, "Critical Log")
     le.Log(ale.Error, "Error Log")
@@ -27,7 +28,7 @@ func main() {
     le.Log(ale.Debug, "Debug Log")
 
     sle := le.CreateSubEngine("Sub-Engine")
-    sle.AddLogPipeline(ale.Warning, pconsole.Log)
+    sle.AddLogPipeline(ale.Warning, pCTX.Log)
 
     sle.Log(ale.Critical, "Critical Log")
     sle.Log(ale.Error, "Error Log")

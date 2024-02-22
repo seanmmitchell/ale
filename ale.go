@@ -7,6 +7,7 @@ import (
 	"github.com/seanmmitchell/ale/v2/tfuncs"
 )
 
+// Log Types
 const (
 	Critical = iota
 	Error    = iota
@@ -23,6 +24,7 @@ type Log struct {
 	Message  string
 }
 
+// Log Engine
 type LogEngine struct {
 	parentEngine *LogEngine
 	Name         string
@@ -53,7 +55,13 @@ func (le *LogEngine) CreateSubEngine(name string) *LogEngine {
 func (le *LogEngine) Log(sev int, message string) {
 	for _, pipeline := range le.pipeLines {
 		if pipeline.Severity >= sev {
-			pipeline.Output(&Log{time.Now().UTC(), getEnginePath(le), sev, message})
+			outputError := pipeline.Output(&Log{time.Now().UTC(), getEnginePath(le), sev, message})
+
+			if outputError != nil {
+				// Log Output Failed!
+				fmt.Println("ALE | Log Output Failed. Error: " + outputError.Error())
+				//return outputError - We dont want to prevent other pipelines from being logged to. Best to just send to console and move on.
+			}
 		}
 	}
 }
