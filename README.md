@@ -6,13 +6,13 @@ A simple yet very powerful logging package great for quick projects and scaling 
 ![image](https://user-images.githubusercontent.com/20157708/220814053-ec10383a-eb9f-433c-95b5-fc49d2c2af90.png)
 
 ## How to Install
-    go get -u github.com/seanmmitchell/ale
+    go get -u github.com/seanmmitchell/ale/v2
 
 ## How to Use
 ```go
 import (
-    "github.com/seanmmitchell/ale"
-    "github.com/seanmmitchell/ale/pconsole"
+    "github.com/seanmmitchell/ale/v2"
+    "github.com/seanmmitchell/ale/v2/pconsole"
 )
 
 func main() {
