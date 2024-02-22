@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/seanmmitchell/ale/sfuncs"
-	"github.com/seanmmitchell/ale/tfuncs"
+	"github.com/seanmmitchell/ale/v2/sfuncs"
+	"github.com/seanmmitchell/ale/v2/tfuncs"
 
-	"github.com/seanmmitchell/ale"
+	"github.com/seanmmitchell/ale/v2"
 
 	"github.com/wzshiming/ctc"
 )

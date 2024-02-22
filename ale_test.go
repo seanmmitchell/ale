@@ -3,9 +3,9 @@ package ale_test
 import (
 	"testing"
 
-	"github.com/seanmmitchell/ale"
-	"github.com/seanmmitchell/ale/alesyslog"
-	"github.com/seanmmitchell/ale/pconsole"
+	"github.com/seanmmitchell/ale/v2"
+	"github.com/seanmmitchell/ale/v2/alesyslog"
+	"github.com/seanmmitchell/ale/v2/pconsole"
 )
 
 func TestMain(t *testing.T) {

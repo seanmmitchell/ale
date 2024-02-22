@@ -3,7 +3,7 @@ package alesyslog
 import (
 	"log/syslog"
 
-	"github.com/seanmmitchell/ale"
+	"github.com/seanmmitchell/ale/v2"
 )
 
 type SyslogWriter struct {
